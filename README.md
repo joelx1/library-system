@@ -11,12 +11,14 @@ This project demonstrates the use of **relational databases**, **Java backend**,
 ### 👤 User
 - ✅ Register and log in
 - ✅ View all available books
+- ✅ Filter by genre, year, author
 - ✅ Borrow books
 - ✅ Return books
 - ✅ View personal loan history
 - ✅ View some reports
 
 ### 🛠 Admin
+- ✅ All user actions
 - ✅ Log in as admin
 - ✅ Add new books
 - ✅ Remove existing books
@@ -43,5 +45,3 @@ This project demonstrates the use of **relational databases**, **Java backend**,
 ## 🚀 How to Use
 
 Access the project online here: [📖 Library Search](https://www.jxunified.eu/projects/library-search) 
-
-*(Will be available when the project is deployed)*

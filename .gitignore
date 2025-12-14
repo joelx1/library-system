@@ -1,0 +1,43 @@
+# ===============================
+# Java / Maven / Spring Boot
+# ===============================
+
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+/.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+log/
+*.log
+*.tmp
+
+# IntelliJ IDEA / VSCode
+/.idea/
+/.vscode/
+/*.iml
+
+# ===============================
+# PostgreSQL / Database files
+# ===============================
+
+# pgAdmin backups
+*.backup
+*.sql~       # temporary editor files
+
+# local dump files
+*.dump
+*.db
+
+# ===============================
+# OS / Misc
+# ===============================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

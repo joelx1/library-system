@@ -42,6 +42,6 @@ This project demonstrates the use of **relational databases**, **Java backend**,
 
 ## 🚀 How to Use
 
-Access the project online here: [📖 Library Search](https://library.jxunified.eu)
+Access the project online here: [📖 Library Search](https://www.jxunified.eu/projects/library-search) 
 
 *(Will be available when the project is deployed)*

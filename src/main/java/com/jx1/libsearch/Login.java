@@ -69,33 +69,25 @@ public class Login
                         break;
                     case "1":
                         viewBooks(con);
-                    break;
+                        break;
                     case "2":
-                        if (r.equalsIgnoreCase("admin"))
-                        {
-                            addBook(con, s);
-                        }
-                        else
-                        {
                             borrowBook(con, s, uid);
-                        }
                         break;
                     case "3":
                         if (r.equalsIgnoreCase("admin"))
-                        {
-                            removeBook(con, s);
-                        }
-                        else
-                        {
                             returnBook(con, s, uid);
-                        }
                         break;
                     case "4":
-                        exit = true;
-                        System.out.println("Logging out...");
+                        if (r.equalsIgnoreCase("admin"))
+                            addBook(con, s);
+                        break;
+                    case "5":
+                        if (r.equalsIgnoreCase("admin"))
+                            removeBook(con, s);
                         break;
                     default:
                         System.out.println("Invalid option. Try again.");
+                    break;
                 }
             }
         } 
@@ -109,19 +101,14 @@ public class Login
     {
         System.out.println("\n--- Main Menu ---");
         System.out.println("1. View Books");
-
+        System.out.println("2. Borrow Book");
+        System.out.println("3. Return Book");
         if (r.equalsIgnoreCase("admin"))
         {
-            System.out.println("2. Add Book");
-            System.out.println("3. Remove Book");
-            System.out.println("0. Logout");
+            System.out.println("4. Add Book");
+            System.out.println("5. Remove Book");
         }
-        else
-        {
-            System.out.println("2. Borrow Book");
-            System.out.println("3. Return Book");
             System.out.println("0. Logout");
-        }
     }
 
     private static void viewBooks(Connection con) throws SQLException

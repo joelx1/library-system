@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
-public class Login
+public class MainApp
 {
     public static void main(String args[])
     {
@@ -149,5 +149,6 @@ public class Login
     private static void removeBook(Connection con, Scanner s)
     {
         System.out.println("Remove book functionality to be implemented...");
+        
     }
 }

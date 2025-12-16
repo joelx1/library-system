@@ -4,8 +4,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 public class Database 
 {
-    /* set this value to false if not using enviromental variables and
-    you want to use hardcoded variables instead */
+    /* set this value to false if not using enviromental variables
+    and you want to use hardcoded variables instead */
     private static final boolean ev = true;
 
     private static String URL;

@@ -16,10 +16,8 @@ log/
 *.log
 *.tmp
 
-# IntelliJ IDEA / VSCode
-/.idea/
+# VSCode
 /.vscode/
-/*.iml
 
 # ===============================
 # PostgreSQL / Database files

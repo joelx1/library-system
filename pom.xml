@@ -7,11 +7,11 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.jx1.libsearch</groupId>
-  <artifactId>library-search</artifactId>
+  <groupId>com.jx1.libsystem</groupId>
+  <artifactId>library-system</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>library-search</name>
-  <url>https://github.com/joelx1/library-search</url>
+  <name>library-system</name>
+  <url>https://github.com/joelx1/library-system</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,5 +40,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
 </project>

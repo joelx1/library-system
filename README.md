@@ -1,4 +1,4 @@
-# 📚 Library Search
+# 📚 Library System
 
 A **small and simple Library Management System** built with **Java** and **SQL**, allowing users to **view, borrow, and return books**.  
 Admin users can **manage the library** by adding or removing books.  

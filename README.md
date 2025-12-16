@@ -44,4 +44,19 @@ This project demonstrates the use of **relational databases**, **Java backend**,
 
 ## 🚀 How to Use
 
-Access the project online here: [📖 Library Search](https://www.jxunified.eu/projects/library-search) 
+### 🌐 Option 1: Web Version (Recommended)
+Use the hosted web version to preview and interact with the project online:  
+👉 **[Library Search](https://www.jxunified.eu/projects/library-search)**
+
+### 💾 Option 2: Run Locally
+
+#### ✅ Requirements
+- **Java 21 JDK** (required to build and run the application)
+- **Relational Database Management System (RDBMS)**  
+  - **PostgreSQL** (recommended) with **pgAdmin 4**, or  
+  - **MySQL** with a compatible management tool (e.g. MySQL Workbench)
+- **Maven** (if not bundled with your IDE)
+
+#### 📋 Instructions
+> *To be added*  
+These will include database setup, configuration, and application startup steps.

@@ -11,7 +11,7 @@ public class MainApp
         try (Connection con = Database.getConnection();
         Scanner s = new Scanner(System.in))
         {
-            System.out.println("=== Welcome to library-search ===");
+            System.out.println("=== Welcome to library-system ===");
         
             // Login loop
             boolean l = false; // logged in

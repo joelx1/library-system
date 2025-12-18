@@ -26,11 +26,17 @@
       <artifactId>postgresql</artifactId>
       <version>42.6.0</version>
     </dependency>
-    <!-- BCrypt -->
+    <!-- BCrypt (Password Hashing)-->
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-crypto</artifactId>
       <version>6.2.1</version>
+    </dependency>
+    <!-- Apache Commons Logging (BCrypt needs it) -->
+    <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.2</version>
     </dependency>
     <!-- JUnit -->
     <dependency>

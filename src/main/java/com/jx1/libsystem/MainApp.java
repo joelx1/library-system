@@ -12,7 +12,23 @@ public class MainApp
         Scanner s = new Scanner(System.in))
         {
             System.out.println("=== Welcome to library-system ===");
-        
+
+            // Menu Loop
+            boolean ls = false;
+            while (!ls)
+            {
+                System.out.println("1. Login");
+                System.out.println("2. Sign up");
+                System.out.print("Choose an option: ");
+                String lin = s.nextLine();
+                switch (lin)
+                {
+                    case "1" -> ls = true;
+                    case "2" -> createAccount(con, s);
+                    default -> System.out.println("Invalid option. Try again.");
+                }
+            }
+
             // Login loop
             boolean l = false; // logged in
             int uid = -1;
@@ -26,29 +42,36 @@ public class MainApp
                 System.out.print("Enter password: ");
                 String pw = s.nextLine();
 
-                String q = "SELECT user_id, name, role FROM users WHERE uname = ? AND password = ?"; // query
-                try (PreparedStatement stmt = con.prepareStatement(q))
+                String q = "SELECT user_id, name, role, password FROM users WHERE uname = ?"; // query
+                try (PreparedStatement st = con.prepareStatement(q))
                 {
-                    stmt.setString(1, uname);
-                    stmt.setString(2, pw);
-
-                    ResultSet rs = stmt.executeQuery();
+                    st.setString(1, uname);
+                    ResultSet rs = st.executeQuery();
                     if (rs.next())
                     {    
-                        uid = rs.getInt("user_id");
-                        String nm = rs.getString("name");
-                        r = rs.getString("role");
-                        l = true;
-                        System.out.println("Login successful");
-                        System.out.println("Welcome " + nm);
-                        if (r.equalsIgnoreCase("admin"))
+                        String hPw = rs.getString("password"); // reads hashed pw
+                        if (PasswordHash.checkpw(pw, hPw))
                         {
-                            System.out.println("You have administrative access");
+                            uid = rs.getInt("user_id");
+                            String nm = rs.getString("name");
+                            r = rs.getString("role");
+                            l = true;
+                            System.out.println("Login successful");
+                            System.out.println();
+                            System.out.println("Welcome " + nm);
+                            if (r.equalsIgnoreCase("admin"))
+                            {
+                                System.out.println("You have administrative access");
+                            }
+                        }
+                        else
+                        {
+                            System.out.println("Invalid password. Try again.");
                         }
                     } 
                     else
                     {
-                        System.out.println("Invalid username or password. Try again.");
+                        System.out.println("Username not found");
                     }
                 }
             }
@@ -63,31 +86,25 @@ public class MainApp
 
                 switch (c)
                 {
-                    case "0":
+                    case "0" -> {
                         exit = true;
                         System.out.println("Logging out...");
-                        break;
-                    case "1":
-                        viewBooks(con);
-                        break;
-                    case "2":
-                            borrowBook(con, s, uid);
-                        break;
-                    case "3":
+                    }
+                    case "1" -> viewBooks(con);
+                    case "2" -> borrowBook(con, s, uid);
+                    case "3" -> {
                         if (r.equalsIgnoreCase("admin"))
                             returnBook(con, s, uid);
-                        break;
-                    case "4":
+                    }
+                    case "4" -> {
                         if (r.equalsIgnoreCase("admin"))
                             addBook(con, s);
-                        break;
-                    case "5":
+                    }
+                    case "5" -> {
                         if (r.equalsIgnoreCase("admin"))
                             removeBook(con, s);
-                        break;
-                    default:
-                        System.out.println("Invalid option. Try again.");
-                    break;
+                    }
+                    default -> System.out.println("Invalid option. Try again.");
                 }
             }
         } 
@@ -126,6 +143,48 @@ public class MainApp
                     rs.getString("author"),
                     rs.getString("genre"),
                     rs.getInt("available_copies"));
+            }
+        }
+    }
+
+    private static void createAccount(Connection con, Scanner s)
+    {
+        try
+        {
+            System.out.print("Enter a username: ");
+            String uname = s.nextLine();
+
+            System.out.print("Enter full name: ");
+            String name = s.nextLine();
+
+            System.out.print("Enter a password: ");
+            String pw = s.nextLine();
+
+            String hPw = PasswordHash.hashpw(pw); // hashing the password
+
+            String q = """
+                INSERT INTO users (uname, name, password, role)
+                VALUES (?, ?, ?, 'user')
+            """;
+
+            try (PreparedStatement st = con.prepareStatement(q))
+            {
+                st.setString(1, uname);
+                st.setString(2, name);
+                st.setString(3, hPw);
+                st.executeUpdate();
+                System.out.println("Account created successfully!");
+            }
+        }
+        catch (SQLException e)
+        {
+            if (e.getMessage().contains("unique"))
+            {
+                System.out.println("This username already exists. Please choose another one.");
+            }
+            else
+            {
+                e.printStackTrace();
             }
         }
     }

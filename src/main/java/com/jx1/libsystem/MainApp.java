@@ -92,10 +92,7 @@ public class MainApp
                     }
                     case "1" -> viewBooks(con);
                     case "2" -> borrowBook(con, s, uid);
-                    case "3" -> {
-                        if (r.equalsIgnoreCase("admin"))
-                            returnBook(con, s, uid);
-                    }
+                    case "3" -> returnBook(con, s, uid);
                     case "4" -> {
                         if (r.equalsIgnoreCase("admin"))
                             addBook(con, s);

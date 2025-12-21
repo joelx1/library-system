@@ -50,13 +50,7 @@ Use the hosted web version to preview and interact with the project online:
 
 ### 💾 Option 2: Run Locally
 
-#### ✅ Requirements
-- **Java 21 JDK** (required to build and run the application)
-- **Relational Database Management System (RDBMS)**  
-  - **PostgreSQL** (recommended) with **pgAdmin 4**, or  
-  - **MySQL** with a compatible management tool (e.g. MySQL Workbench)
-- **Maven** (if not bundled with your IDE)
+To run the Library System on your local machine, follow the step-by-step setup guide provided below.
 
-#### 📋 Instructions
-> *To be added*  
-These will include database setup, configuration, and application startup steps.
+📄 **Local Setup Instructions**  
+👉 [Instructions](Instructions.md)

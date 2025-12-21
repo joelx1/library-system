@@ -199,7 +199,116 @@ public class MainApp
 
     private static void addBook(Connection con, Scanner s)
     {
-        System.out.println("Add book functionality to be implemented...");
+        try
+        {
+            System.out.print("Enter title: ");
+            String t = s.nextLine();
+
+            System.out.print("Enter author: ");
+            String a = s.nextLine();
+
+            int y = -1;
+            while (y < 0)
+            {
+                System.out.println("Enter 0 if the year is unknown");
+                System.out.print("Enter year of publication: ");
+                String in = s.nextLine();
+
+                try
+                {
+                    y = Integer.parseInt(in);
+                    if (y < 0)
+                    {
+                        System.out.println("Year cannot be negative.");
+                    }
+                }
+                catch (NumberFormatException e)
+                {
+                    System.out.println("Please enter a valid number.");
+                }
+            }
+
+            System.out.println("Enter 0 if the genre is unknown");
+            System.out.print("Enter genre: ");
+            String g = s.nextLine();
+            if (g.equals("0"))
+            {
+                g = null;
+            }
+
+            int c = -1;
+            while (c < 0)
+            {
+                System.out.print("Enter number of copies: ");
+                String in = s.nextLine();
+
+                try
+                {
+                    c = Integer.parseInt(in);
+                    if (c < 0)
+                    {
+                        System.out.println("Copies cannot be negative.");
+                    }
+                }
+                catch (NumberFormatException e)
+                {
+                    System.out.println("Please enter a valid number.");
+                }
+            }
+
+            String sql;
+            if (y > 0 && g != null)
+            {
+                sql = """
+                    INSERT INTO books (title, author, published_year, genre, total_copies, available_copies)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                    """;
+            }
+            else if (y > 0)
+            {
+                sql = """
+                    INSERT INTO books (title, author, published_year, total_copies, available_copies)
+                    VALUES (?, ?, ?, ?, ?)
+                    """;
+            }
+            else if (g != null)
+            {
+                sql = """
+                    INSERT INTO books (title, author, genre, total_copies, available_copies)
+                    VALUES (?, ?, ?, ?, ?)
+                    """;
+            }
+            else
+            {
+                sql = """
+                    INSERT INTO books (title, author, total_copies, available_copies)
+                    VALUES (?, ?, ?, ?)
+                    """;
+            }
+
+            try (PreparedStatement st = con.prepareStatement(sql))
+            {
+                int idx = 1;
+                st.setString(idx++, t);
+                st.setString(idx++, a);
+
+                if (y > 0)
+                    st.setInt(idx++, y);
+
+                if (g != null)
+                    st.setString(idx++, g);
+
+                st.setInt(idx++, c);
+                st.setInt(idx, c);
+
+                int rows = st.executeUpdate();
+                System.out.println(rows > 0 ? "Book added successfully!" : "Failed to add book.");
+            }
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Database error: " + e.getMessage());
+        }
     }
 
     private static void removeBook(Connection con, Scanner s)

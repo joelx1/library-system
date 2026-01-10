@@ -1,5 +1,7 @@
 # 📚 Library System
 
+# This project is on hiatus until my exams are over
+
 A **small and simple Library Management System** built with **Java** and **SQL**, allowing users to **view, borrow, and return books**.  
 Admin users can **manage the library** by adding or removing books.  
 This project demonstrates the use of **relational databases**, **Java backend**, and **basic web interfaces**.

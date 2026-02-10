@@ -46,7 +46,7 @@ This project demonstrates the use of **relational databases**, **Java backend**,
 
 ### Option 1: Web Version (Recommended)
 Use the hosted web version to preview and interact with the project online:  
-👉 **[Library System](https://www.jxunified.eu/projects/library-system)**
+**[Library System](https://www.jxunified.eu/projects/library-system)**
 
 ### Option 2: Run Locally
 

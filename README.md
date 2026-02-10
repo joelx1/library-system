@@ -6,33 +6,33 @@ This project demonstrates the use of **relational databases**, **Java backend**,
 
 ---
 
-## ✨ Features
+## Features
 
 ### 👤 User
-- ✅ Register and log in
-- ✅ View all available books
-- ✅ Filter by genre, year, author
-- ✅ Borrow books
-- ✅ Return books
-- ✅ View personal loan history
-- ✅ View some reports
+- Register and log in
+- View all available books
+- Filter by genre, year, author
+- Borrow books
+- Return books
+- View personal loan history
+- View some reports related to user
 
 ### 🛠 Admin
-- ✅ All user actions
-- ✅ Log in as admin
-- ✅ Add new books
-- ✅ Remove existing books
-- ✅ View all reports
+- All user actions
+- Log in as admin
+- Add new books
+- Remove existing books
+- View all reports
 
 ### 📊 Reports
-- 📌 List of currently borrowed books
-- 📌 Most borrowed books
-- 📌 Most active user
-- 📌 Most popular Author and Genre
+- List of currently borrowed books
+- Most borrowed books
+- Most active user
+- Most popular Author and Genre
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 - **Java 21** – Backend  
 - **JDBC / Spring Boot** – Database connection and web server  
@@ -42,15 +42,15 @@ This project demonstrates the use of **relational databases**, **Java backend**,
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
-### 🌐 Option 1: Web Version (Recommended)
+### Option 1: Web Version (Recommended)
 Use the hosted web version to preview and interact with the project online:  
 👉 **[Library System](https://www.jxunified.eu/projects/library-system)**
 
-### 💾 Option 2: Run Locally
+### Option 2: Run Locally
 
 To run the Library System on your local machine, follow the step-by-step setup guide provided below.
 
-📄 **Local Setup Instructions**  
-👉 [Instructions](Instructions.md)
+**Local Setup Instructions**  
+[Instructions](Instructions.md)
